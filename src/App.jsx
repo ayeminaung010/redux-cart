@@ -7,6 +7,7 @@ import FavCard from './Components/FavCard';
 import Cart from './Components/Cart';
 import Success from './Components/Success';
 import NotFound from './Components/notFound';
+import { MutatingDots } from 'react-loader-spinner';
 
 const App = () => {
   return (

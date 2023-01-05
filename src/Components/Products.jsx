@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getData } from '../api'
 import {  AddProducts } from '../services/productSlice';
 import Card from './Card';
+import Loader from './Loader';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -19,11 +20,14 @@ const Products = () => {
   },[])
   
   return (
-    <div className=' d-flex flex-wrap gap-3 mt-5 mx-2 justify-content-center '>
-      {products?.map((product) =>(
-        <Card key={product.id} product={product}/>
-      ))}
-    </div>
+    <>
+      {products.length === 0 ? <Loader/> :
+      <div className=' d-flex flex-wrap gap-3 mt-5 mx-2 justify-content-center '>
+        {products?.map((product) =>(
+          <Card key={product.id} product={product}/>
+        ))}
+      </div>}
+    </>
   )
 }
 
