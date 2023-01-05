@@ -4,6 +4,9 @@ import Products from './Components/Products'
 import './App.css';
 import NavBar from './Components/NavBar';
 import FavCard from './Components/FavCard';
+import Cart from './Components/Cart';
+import Success from './Components/Success';
+import NotFound from './Components/notFound';
 
 const App = () => {
   return (
@@ -12,6 +15,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Products/>} />
         <Route path='/fav' element={<FavCard/>} />
+        <Route path='/cart' element={<Cart/>} />
+        <Route path='/success' element={<Success/>} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
     </div>
   )

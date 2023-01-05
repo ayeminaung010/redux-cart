@@ -3,6 +3,7 @@ import {BsCartPlusFill} from 'react-icons/bs'
 import {AiFillHeart} from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
 import { AddToFav } from '../services/productSlice'
+import { addToCart } from '../services/cartSlice'
 
 
 const Card = ({product}) => {
@@ -16,7 +17,7 @@ const Card = ({product}) => {
 
                 <span className=' text-primary fw-bold fs-5'>${product.price}</span>
                 <div className=" d-flex gap-2">
-                    <button className=' d-flex align-items-center  btn btn-outline-primary mt-3'>
+                    <button onClick={() => dispatch(addToCart(product))} className=' d-flex align-items-center  btn btn-outline-primary mt-3'>
                         <BsCartPlusFill className='fs-5'/>
                     </button>
                     <button onClick={() => dispatch(AddToFav(product))} className=' d-flex align-items-center  btn btn-outline-danger mt-3'>

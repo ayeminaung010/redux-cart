@@ -15,7 +15,7 @@ export const productSlice = createSlice({
             state.fav.push(action.payload)
         },
         RemoveFromFav: (state,action) =>{
-           state.fav =  state.fav.filter( item => item.id !== action.payload.id)
+            state.fav =  state.fav?.filter( item => item.id !== action.payload.id)
         }
     },
 })

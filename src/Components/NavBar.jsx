@@ -3,8 +3,10 @@ import {FaShopware} from 'react-icons/fa'
 import {BiCart} from 'react-icons/bi'
 import {AiFillHeart} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const NavBar = () => {
+  const cart = useSelector(state => state.cart.cart);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary ">
       <div className="container">
@@ -16,9 +18,12 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse d-flex gap-2 justify-content-end" id="navbarSupportedContent">
-          <button className=' btn btn-primary'>
-            <BiCart className=' '/> 10
-          </button>
+          <Link to={'/cart'}>
+            <button className=' btn btn-primary'>
+              <BiCart className=' '/>  {cart?.length}
+            </button>
+          </Link>
+
           <Link to={'/fav'}>
             <button className='  btn btn-danger'>
                 <AiFillHeart className=''/>
